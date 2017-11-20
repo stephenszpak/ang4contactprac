@@ -11,7 +11,7 @@ CONTACTS
   </label>
   <!-- (click) passes input value to add() and then clears the input -->
   <button (click)="add(contactName.value, contactPhone.value); contactName.value=''; contactPhone.value=''">
-    add
+    Add
   </button>
 </div>
 
@@ -21,6 +21,6 @@ CONTACTS
       <span class="badge">{{contact.id}}</span> {{contact.name}}<br>{{contact.phone}}
     </a>
     <button class="delete" title="delete contact"
-    (click)="delete(contact)">x</button>
+            (click)="delete(contact)">x</button>
   </li>
 </ul>

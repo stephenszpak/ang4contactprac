@@ -43,7 +43,7 @@ export class ContactService {
       );
   }
 
-
+  // GET single contact
   getContact(id: number): Observable<Contact> {
     const url = `${this.contactsUrl}/${id}`;
     return this.http.get<Contact>(url).pipe(

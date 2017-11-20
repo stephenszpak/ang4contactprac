@@ -19,6 +19,6 @@ export class DashComponent implements OnInit {
   
     getContacts(): void {
       this.contactService.getContacts()
-      .subscribe(contacts => this.contacts = contacts);
+      .subscribe(contacts => this.contacts = contacts.slice(1, 5));
     }
 }
