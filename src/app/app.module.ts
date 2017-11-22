@@ -8,8 +8,11 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppRoutingModule }     from './app-routing.module';
 
-// import {AngularFireModule} from 'angularfire2';
-// import {AngularFireDatabaseModule} from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { AuthService } from './auth.service';
 
 import { AppComponent } from './app.component';
 import { ContactsComponent } from './contacts/contacts.component';
@@ -19,7 +22,6 @@ import { DashComponent } from './dash/dash.component';
 import { ContactService }          from './contact.service';
 import { MessageService }       from './message.service';
 import { MessagesComponent } from './messages/messages.component';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,13 +37,13 @@ import { environment } from '../environments/environment';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    // AngularFireModule.initializeApp(environment.firebase),
-    // AngularFireDatabaseModule, // for database
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [ContactService, MessageService],
+  providers: [ContactService, MessageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
