@@ -1,3 +1,12 @@
-<p>
-  contact-search works!
-</p>
+
+<div>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+    <ul class="search-result">
+      <li *ngFor="let contact of contactsObserve | async" >
+        <a routerLink="/detail/{{contact.id}}">
+          {{contact.name}}
+        </a>
+      </li>
+    </ul>
+</div>

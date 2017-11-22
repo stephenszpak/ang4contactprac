@@ -8,7 +8,7 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./dash.component.css']
 })
 export class DashComponent implements OnInit {
-
+  
   contacts: Contact[];
   
     constructor(private contactService: ContactService) { }
